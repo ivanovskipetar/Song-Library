@@ -1,0 +1,77 @@
+REQUEST A. Add a new artist.
+	ENDPOINT = ( POST METHOD: http://localhost:9090/api/artists/add )
+	REQUESTBODY = 
+	{
+    		"name":"nameValue",
+    		"artistName":"artistNameValue",
+    		"dateOfBirth":"example_1988-10-09",
+    		"nationality":"nationalityValue"
+	}
+
+REQUEST B. Add a new song for the specified artist.
+	ENDPOINT = ( POST METHOD: http://localhost:9090/api/artists/{artistId}/add-song )
+	REQUESTBODY = 
+	{
+        	"title":"titleValue",
+        	"durationInMinutes": "2",
+        	"genre": "POP"
+	}
+
+REQUEST C. Add a new playlist.
+	ENDPOINT = ( POST METHOD: http://localhost:9090/api/playlists/add )
+	REQUESTBODY = 
+	{
+        	"name":"nameValue",
+    		"isPrivate": false
+	}
+
+REQUEST D. Get all the artists with their artistic name and original name which are born before 1999 and nationality is Macedonian.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/artists/applyfilter?bornBeforeYear=1999&nationality=Macedonia )
+	REQUESTPARAMS: bornBeforeYear, nationality
+
+REQUEST E. Get specified artist with all their details, including the list of their songs (just with their title and release date) sorted by song name in descending order.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/artists/{artistId}/get )
+
+REQUEST F. Get the song with the longest duration from a specified artist of a certain genre.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/songs/{artistId}/longest-song-from-genre?genre=POP )
+	REQUESTPARAMS: genre
+
+REQUEST G. Get all playlists containing songs by a specified artist sorted first by Artist name then by Artist date of birth in ascending order.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/playlists/{artistId}/get )
+
+REQUEST H. Get all the playlists which are public and contain a maximum of 3 songs.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/playlists/apply-public-filter )
+
+REQUEST I. Calculate total duration of all the songs for the specified playlist.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/playlists/{playlistId}/calculate-total-duration-of-songs )
+
+
+REQUEST J. Add an existing song to a specified playlist.
+	ENDPOINT = ( POST METHOD: http://localhost:9090/api/playlists/{playlistId}/add-song/{songId} )
+
+
+REQUEST K. Delete specified playlist.
+	ENDPOINT = ( DELETE METHOD: http://localhost:9090/api/playlists/{playlistId}/delete )
+
+REQUEST L. Get first 3 songs with duration between 5 and 10 minutes and sort by duration time in descending order.
+	ENDPOINT = ( GET METHOD: http://localhost:9090/api/songs/apply-duration-sort-filter?from_min=5&to_min=10 )
+	REQUESTPARAMS: from_min, to_min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
